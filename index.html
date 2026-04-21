@@ -20,6 +20,7 @@
       --white-strong: rgba(255, 255, 255, 0.88);
       --primary: #0f172a;
       --accent: #2563eb;
+      --accent-2: #1d4ed8;
       --shadow-sm: 0 10px 30px rgba(15, 23, 42, 0.08);
       --shadow-lg: 0 24px 80px rgba(15, 23, 42, 0.12);
       --radius-xl: 28px;
@@ -139,7 +140,7 @@
 
     .hero-wrap {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 26px;
       align-items: stretch;
     }
@@ -167,7 +168,7 @@
       font-size: clamp(36px, 6vw, 66px);
       line-height: 1.02;
       letter-spacing: -0.04em;
-      max-width: 10ch;
+      max-width: 11ch;
     }
 
     .hero-text {
@@ -194,6 +195,7 @@
       justify-content: center;
       font-weight: 800;
       transition: 0.18s ease;
+      cursor: pointer;
     }
 
     .btn:hover {
@@ -225,8 +227,8 @@
       position: absolute;
       right: -40px;
       bottom: -40px;
-      width: 170px;
-      height: 170px;
+      width: 190px;
+      height: 190px;
       border-radius: 999px;
       background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, rgba(37,99,235,0) 70%);
       pointer-events: none;
@@ -309,31 +311,46 @@
       line-height: 1.7;
     }
 
-    .cards {
+    .office-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
-    .card {
+    .office-card {
       border-radius: var(--radius-lg);
       padding: 24px;
-      transition: 0.18s ease;
+      transition: 0.2s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
+    .office-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 70px rgba(15, 23, 42, 0.16);
     }
 
-    .card-top {
+    .office-card::after {
+      content: "";
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(37,99,235,0.10) 0%, rgba(37,99,235,0) 70%);
+      pointer-events: none;
+    }
+
+    .office-top {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 14px;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
-    .card-label {
+    .office-label {
       font-size: 13px;
       font-weight: 800;
       letter-spacing: 0.08em;
@@ -341,43 +358,115 @@
       color: #64748b;
     }
 
-    .card-action {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--accent);
+    .office-badge {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--accent-2);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
     }
 
-    .card-value {
-      font-size: 20px;
-      line-height: 1.6;
-      word-break: break-word;
-      color: var(--text);
+    .office-title {
+      margin: 0 0 10px;
+      font-size: 22px;
+      letter-spacing: -0.02em;
     }
 
-    .location {
-      padding: 26px 0 72px;
+    .office-company {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 15px;
     }
 
-    .location-grid {
+    .office-list {
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .office-list li {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.54);
+      border: 1px solid rgba(15, 23, 42, 0.05);
+      line-height: 1.55;
+    }
+
+    .office-list strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+    }
+
+    .office-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .office-btn {
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.18s ease;
+    }
+
+    .office-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .office-btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    }
+
+    .office-btn-secondary {
+      color: var(--text);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .corporate {
+      padding: 28px 0 72px;
+    }
+
+    .corporate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 20px;
       align-items: stretch;
     }
 
-    .location-copy {
+    .corporate-copy,
+    .corporate-panel {
       padding: 28px;
       border-radius: var(--radius-xl);
     }
 
-    .location-copy h2 {
+    .corporate-copy h2,
+    .corporate-panel h3 {
       margin: 16px 0 10px;
       font-size: clamp(28px, 4vw, 44px);
       line-height: 1.08;
       letter-spacing: -0.03em;
     }
 
-    .location-copy p {
+    .corporate-copy p,
+    .corporate-panel p {
       margin: 0;
       color: var(--muted);
       line-height: 1.75;
@@ -410,23 +499,36 @@
     .meta-item a {
       color: var(--text);
       font-size: 16px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
-    .map-frame {
-      overflow: hidden;
-      min-height: 520px;
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      box-shadow: var(--shadow-lg);
-      backdrop-filter: blur(12px);
+    .corp-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
     }
 
-    .map-frame iframe {
-      width: 100%;
-      height: 100%;
-      min-height: 520px;
-      border: 0;
+    .corp-line {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.58);
+      border: 1px solid rgba(15, 23, 42, 0.05);
+    }
+
+    .corp-line span {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #64748b;
+    }
+
+    .corp-line strong {
+      display: block;
+      line-height: 1.6;
+      font-size: 16px;
     }
 
     .footer {
@@ -458,20 +560,14 @@
       font-size: 14px;
     }
 
-    @media (max-width: 980px) {
-      .hero-wrap,
-      .cards,
-      .location-grid {
+    @media (max-width: 1100px) {
+      .office-grid {
         grid-template-columns: 1fr;
       }
 
-      h1 {
-        max-width: none;
-      }
-
-      .map-frame,
-      .map-frame iframe {
-        min-height: 420px;
+      .corporate-grid,
+      .hero-wrap {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -494,23 +590,22 @@
       }
 
       .hero-card,
-      .card,
-      .location-copy {
+      .office-card,
+      .corporate-copy,
+      .corporate-panel {
         padding: 20px;
       }
 
       .hero-actions,
-      .footer-inner {
+      .footer-inner,
+      .office-actions {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .btn {
+      .btn,
+      .office-btn {
         width: 100%;
-      }
-
-      .card-value {
-        font-size: 18px;
       }
     }
   </style>
@@ -530,8 +625,8 @@
 
         <nav class="nav">
           <a href="#hakkinda">Hakkında</a>
-          <a href="#iletisim">İletişim</a>
-          <a href="#konum">Konum</a>
+          <a href="#ofisler">Ofisler</a>
+          <a href="#kurumsal">Kurumsal</a>
         </nav>
       </div>
     </div>
@@ -546,21 +641,21 @@
           <p class="hero-text">
             Artikod, Ankara merkezli bir yönetim firmasıdır. Yediemin otoparklarının
             işletme ve yönetim süreçlerini profesyonel şekilde yürütür; operasyon,
-            organizasyon ve kurumsal iletişim tarafında düzenli bir yapı sunar.
+            organizasyon ve kurumsal koordinasyon tarafında güven veren bir yapı sunar.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="tel:+903122412333">Hemen Ara</a>
-            <a class="btn btn-secondary" href="#iletisim">İletişim Bilgileri</a>
+            <a class="btn btn-primary" href="tel:+903124463919">Merkez Ofisi Ara</a>
+            <a class="btn btn-secondary" href="#ofisler">Tüm İletişim Bilgileri</a>
           </div>
         </div>
 
         <div class="hero-card glass">
           <span class="mini">Kurumsal Bilgiler</span>
-          <h2>Artikod</h2>
+          <h2>ARTIKOD</h2>
           <p>
-            Ankara’da yediemin otopark yönetimi alanında faaliyet gösteren, sade,
-            güven veren ve profesyonel bir yönetim yapısı.
+            Ankara’da faaliyet gösteren, çok noktalı yapılanması ile yediemin
+            otopark yönetimi alanında düzenli ve profesyonel hizmet sunan kurumsal yapı.
           </p>
 
           <div class="info-stack">
@@ -569,12 +664,12 @@
               <strong>Yediemin Otopark Yönetimi</strong>
             </div>
             <div class="stack-item">
-              <span>E-posta</span>
-              <a href="mailto:info@artikod.com">info@artikod.com</a>
+              <span>Merkez Telefon</span>
+              <a href="tel:+903124463919">0312 446 39 19</a>
             </div>
             <div class="stack-item">
-              <span>Telefon</span>
-              <a href="tel:+903122412333">+90 (312) 241 23 33</a>
+              <span>Ofis Yapısı</span>
+              <strong>Merkez + 2 Şube / Ankara</strong>
             </div>
           </div>
         </div>
@@ -582,86 +677,218 @@
     </div>
   </section>
 
-  <section class="section" id="iletisim">
+  <section class="section" id="ofisler">
     <div class="container">
       <div class="section-head">
         <div class="eyebrow">İletişim</div>
-        <h2>Bize ulaşın</h2>
+        <h2>Ofis ve şube bilgileri</h2>
         <p>
-          Telefon, e-posta ve konum bilgileri üzerinden Artikod ile hızlı şekilde
-          iletişime geçebilirsiniz.
+          Merkez ofis ve şubelerimize ait adres, telefon ve kurumsal kayıt bilgilerine
+          aşağıdan ulaşabilirsiniz.
         </p>
       </div>
 
-      <div class="cards">
-        <a class="card glass" href="tel:+903122412333">
-          <div class="card-top">
-            <span class="card-label">Telefon</span>
-            <span class="card-action">Ara</span>
+      <div class="office-grid">
+        <div class="office-card glass">
+          <div class="office-top">
+            <span class="office-label">Merkez Ofis</span>
+            <span class="office-badge">Yenimahalle</span>
           </div>
-          <div class="card-value">+90 (312) 241 23 33</div>
-        </a>
 
-        <a class="card glass" href="mailto:info@artikod.com">
-          <div class="card-top">
-            <span class="card-label">E-posta</span>
-            <span class="card-action">Yaz</span>
-          </div>
-          <div class="card-value">info@artikod.com</div>
-        </a>
+          <h3 class="office-title">ARTIKOD Merkez</h3>
+          <p class="office-company">
+            ARTIKOD BİLİŞİM VE TEKNOLOJİ SİSTEMLERİ SAN. VE TİC. LTD. ŞTİ.
+          </p>
 
-        <a
-          class="card glass"
-          href="https://www.google.com/maps/search/?api=1&query=Mutlukent+Mah.+Fesle%C4%9Fen+Sk.+No:+5%2F1+06800+Beysukent+%C3%87ankaya+Ankara+T%C3%BCrkiye"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <div class="card-top">
-            <span class="card-label">Adres</span>
-            <span class="card-action">Haritada Aç</span>
+          <ul class="office-list">
+            <li>
+              <strong>Adres</strong>
+              Emniyet Mah. Hipodrom Cad. No:1<br>
+              Yenimahalle / Ankara
+            </li>
+            <li>
+              <strong>Telefon</strong>
+              <a href="tel:+903124463919">0312 446 39 19</a>
+            </li>
+            <li>
+              <strong>Ticaret Sicil No</strong>
+              141486
+            </li>
+            <li>
+              <strong>Vergi Dairesi / No</strong>
+              Kızılbey V.D. No: 986 004 5734
+            </li>
+            <li>
+              <strong>MERSİS No</strong>
+              0986004573400017
+            </li>
+          </ul>
+
+          <div class="office-actions">
+            <a class="office-btn office-btn-primary" href="tel:+903124463919">Ara</a>
+            <a
+              class="office-btn office-btn-secondary"
+              href="https://www.google.com/maps/search/?api=1&query=Emniyet+Mah.+Hipodrom+Cad.+No%3A1+Yenimahalle+Ankara"
+              target="_blank"
+              rel="noreferrer"
+            >Haritada Aç</a>
           </div>
-          <div class="card-value">
-            Mutlukent Mah. Fesleğen Sk. No: 5/1, 06800 Beysukent / Çankaya / Ankara
+        </div>
+
+        <div class="office-card glass">
+          <div class="office-top">
+            <span class="office-label">Ankara Şubesi</span>
+            <span class="office-badge">Etimesgut</span>
           </div>
-        </a>
+
+          <h3 class="office-title">ARTIKOD Ankara Şubesi</h3>
+          <p class="office-company">
+            ARTIKOD BİLİŞİM VE TEKNOLOJİ SİSTEMLERİ SAN. VE TİC. LTD. ŞTİ. – ANKARA ŞUBESİ
+          </p>
+
+          <ul class="office-list">
+            <li>
+              <strong>Adres</strong>
+              Bahçekapı Mah. Fatih Sultan Mehmet Bulv. No:287/1<br>
+              Etimesgut / Ankara
+            </li>
+            <li>
+              <strong>Telefon</strong>
+              <a href="tel:+903124464779">0312 446 47 79</a>
+            </li>
+            <li>
+              <strong>Ticaret Sicil No</strong>
+              286351
+            </li>
+            <li>
+              <strong>Vergi Dairesi / No</strong>
+              Kızılbey V.D. No: 986 004 5734
+            </li>
+            <li>
+              <strong>MERSİS No</strong>
+              0986004573400019
+            </li>
+          </ul>
+
+          <div class="office-actions">
+            <a class="office-btn office-btn-primary" href="tel:+903124464779">Ara</a>
+            <a
+              class="office-btn office-btn-secondary"
+              href="https://www.google.com/maps/search/?api=1&query=Bah%C3%A7ekap%C4%B1+Mah.+Fatih+Sultan+Mehmet+Bulv.+No%3A287%2F1+Etimesgut+Ankara"
+              target="_blank"
+              rel="noreferrer"
+            >Haritada Aç</a>
+          </div>
+        </div>
+
+        <div class="office-card glass">
+          <div class="office-top">
+            <span class="office-label">Çankaya Şubesi</span>
+            <span class="office-badge">Çankaya</span>
+          </div>
+
+          <h3 class="office-title">ARTIKOD Çankaya Şubesi</h3>
+          <p class="office-company">
+            ARTIKOD BİLİŞİM VE TEKNOLOJİ SİSTEMLERİ SAN. VE TİC. LTD. ŞTİ. – ÇANKAYA ŞUBESİ
+          </p>
+
+          <ul class="office-list">
+            <li>
+              <strong>Adres</strong>
+              İşçi Blokları Mah. 1481 Cad. No:5<br>
+              Çankaya / Ankara
+            </li>
+            <li>
+              <strong>Telefon</strong>
+              <a href="tel:+903122869462">0312 286 94 62</a>
+            </li>
+            <li>
+              <strong>Ticaret Sicil No</strong>
+              411075
+            </li>
+            <li>
+              <strong>Vergi Dairesi / No</strong>
+              Kızılbey V.D. No: 986 004 5734
+            </li>
+            <li>
+              <strong>MERSİS No</strong>
+              0986004573400018
+            </li>
+          </ul>
+
+          <div class="office-actions">
+            <a class="office-btn office-btn-primary" href="tel:+903122869462">Ara</a>
+            <a
+              class="office-btn office-btn-secondary"
+              href="https://www.google.com/maps/search/?api=1&query=%C4%B0%C5%9F%C3%A7i+Bloklar%C4%B1+Mah.+1481+Cad.+No%3A5+%C3%87ankaya+Ankara"
+              target="_blank"
+              rel="noreferrer"
+            >Haritada Aç</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="location" id="konum">
+  <section class="corporate" id="kurumsal">
     <div class="container">
-      <div class="location-grid">
-        <div class="location-copy glass">
-          <div class="eyebrow">Konum</div>
-          <h2>Ofis konumu</h2>
+      <div class="corporate-grid">
+        <div class="corporate-copy glass">
+          <div class="eyebrow">Kurumsal</div>
+          <h2>Şirket yapısı</h2>
           <p>
-            Artikod, Ankara’da faaliyet gösteren bir yönetim firması olarak
-            yediemin otoparklarının yönetim süreçlerini profesyonel şekilde sürdürmektedir.
+            Artikod, Ankara merkezli kurumsal organizasyonu ile yediemin otopark
+            yönetim süreçlerinde operasyonel koordinasyon, saha düzeni ve iletişim
+            yapısını profesyonel şekilde sürdürmektedir.
           </p>
 
           <div class="meta">
             <div class="meta-item">
-              <span>Adres</span>
-              <strong>Mutlukent Mah. Fesleğen Sk. No: 5/1, Beysukent / Çankaya / Ankara</strong>
+              <span>Şirket Ünvanı</span>
+              <strong>ARTIKOD BİLİŞİM VE TEKNOLOJİ SİSTEMLERİ SAN. VE TİC. LTD. ŞTİ.</strong>
             </div>
             <div class="meta-item">
-              <span>E-posta</span>
-              <a href="mailto:info@artikod.com">info@artikod.com</a>
+              <span>Merkez Lokasyon</span>
+              <strong>Emniyet Mah. Hipodrom Cad. No:1, Yenimahalle / Ankara</strong>
             </div>
             <div class="meta-item">
-              <span>Telefon</span>
-              <a href="tel:+903122412333">+90 (312) 241 23 33</a>
+              <span>Merkez İletişim</span>
+              <a href="tel:+903124463919">0312 446 39 19</a>
             </div>
           </div>
         </div>
 
-        <div class="map-frame glass">
-          <iframe
-            title="Artikod konum"
-            src="https://www.google.com/maps?q=Mutlukent%20Mah.%20Fesle%C4%9Fen%20Sk.%20No:%205/1%2006800%20Beysukent%20%C3%87ankaya%20Ankara&z=15&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+        <div class="corporate-panel glass">
+          <div class="eyebrow">Kayıt Bilgileri</div>
+          <h3 style="font-size:32px; margin-top:16px;">Resmî bilgiler</h3>
+          <p>
+            Merkez ve şubelere ait temel kurumsal kayıt bilgileri aşağıda özet olarak sunulmuştur.
+          </p>
+
+          <div class="corp-list">
+            <div class="corp-line">
+              <span>Merkez</span>
+              <strong>Tic. Sicil No: 141486</strong>
+              <strong>MERSİS: 0986004573400017</strong>
+            </div>
+
+            <div class="corp-line">
+              <span>Ankara Şubesi</span>
+              <strong>Tic. Sicil No: 286351</strong>
+              <strong>MERSİS: 0986004573400019</strong>
+            </div>
+
+            <div class="corp-line">
+              <span>Çankaya Şubesi</span>
+              <strong>Tic. Sicil No: 411075</strong>
+              <strong>MERSİS: 0986004573400018</strong>
+            </div>
+
+            <div class="corp-line">
+              <span>Vergi Bilgisi</span>
+              <strong>Kızılbey V.D. No: 986 004 5734</strong>
+            </div>
+          </div>
         </div>
       </div>
     </div>
